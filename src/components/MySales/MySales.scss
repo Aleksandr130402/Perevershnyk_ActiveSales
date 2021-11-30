@@ -1,0 +1,43 @@
+@import '../../assets/styles/vars';
+
+.my-sales {
+	padding-top: $p-16;
+
+	h2 {
+		margin-bottom: 21px;
+	}
+}
+
+.my-sales-table {
+	display: flex;
+	flex-direction: column;
+	padding-right: $p-16;
+	padding-left: $p-16;
+
+	.location {
+		padding-bottom: 8px;
+		font-weight: bold;
+	}
+
+	.department {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 16px;
+
+		span {
+			display: inline-block;
+
+			&:first-child {
+				max-width: calc(100vw - 136px);
+			}
+		}
+	}
+}
+
+.my-sales-sum {
+	display: flex;
+	justify-content: space-between;
+	padding: $p-16;
+	border-top: $br;
+	font-weight: bold;
+}

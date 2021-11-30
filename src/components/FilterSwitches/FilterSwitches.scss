@@ -1,0 +1,40 @@
+@import '../../assets/styles/vars';
+
+.line-btn-filter {
+	overflow: hidden;
+	flex-wrap: wrap;
+}
+
+.item-btn {
+	position: relative;
+	flex: 1 1;
+
+	label {
+		display: block;
+		padding: 15px 8px;
+		background-color: $c-gray-5;
+		color: $c-gray-2;
+		font-weight: bold;
+		text-align: center;
+		transition: $transition-normal;
+		white-space: nowrap;
+
+		&::first-letter {
+			text-transform: capitalize;
+		}
+	}
+}
+
+.input-switches {
+	&[type='radio'] {
+		position: absolute;
+		visibility: hidden;
+
+		&:checked {
+			+ label {
+				background-color: $c-white;
+				color: $c-black;
+			}
+		}
+	}
+}

@@ -10,6 +10,8 @@ import { appRoutes } from './routes';
 
 import type { FC } from 'react';
 
+import './App.scss';
+
 export const App: FC = () => {
 	const { appStatus } = useAppState();
 	const appDispatch = useAppDispatch();

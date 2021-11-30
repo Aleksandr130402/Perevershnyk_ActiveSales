@@ -1,0 +1,13 @@
+@import '../../assets/styles/vars';
+
+.current-section {
+	padding: $p-16;
+
+	h2 {
+		margin-bottom: 8px;
+	}
+
+	p {
+		text-align: center;
+	}
+}
