@@ -13,6 +13,7 @@ export const FilterSwitches: FC<FilterSwitchesProps> = ({ changeStatus, propSwit
 						<input
 							type="radio"
 							id={`switches-${item.value}`}
+							className="input-switches"
 							name="switches"
 							defaultChecked={item.defaultChecked}
 							value={item.value.toString()}
