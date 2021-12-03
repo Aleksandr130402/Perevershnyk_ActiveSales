@@ -2,6 +2,7 @@ import { FC, Fragment } from 'react';
 import { MySalesProps } from './MySales.d';
 import './MySales.scss';
 
+const titleTotal = 'Загальна сума виторгу:';
 const textMoney = ' грн';
 
 export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
@@ -25,7 +26,7 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 				))}
 			</div>
 			<div className="my-sales-sum">
-				<span>Загальна сума виторгу:</span>
+				<span>{titleTotal}</span>
 				<span>
 					{dataMySales.total}
 					{textMoney}

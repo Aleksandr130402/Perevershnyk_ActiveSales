@@ -19,22 +19,17 @@ export const TableSales: FC<TableSalesProps> = ({ dataRating }) => {
 				<span>{leftColumnName}</span>
 				<span>{rightColumnName}</span>
 			</div>
-			<div className="sales">
+			<ol className="sales">
 				{dataRating.map((item, id) => {
-					const salesItemClass = classNames('sales-item', 'line', {
-						highlight: surname === item.surname
-					});
-
 					return (
-						<div className={salesItemClass} key={id}>
-							<span>{id + 1}</span>
+						<li className={classNames('sales-item', 'line', { highlight: surname === item.surname })} key={id}>
 							{id === 0 && <img className="trophy" src={trophyIcon} alt="trophy" />}
 							<span className="last-name">{item.surname}</span>
 							<span>{item.money}</span>
-						</div>
+						</li>
 					);
 				})}
-			</div>
+			</ol>
 		</div>
 	);
 };
