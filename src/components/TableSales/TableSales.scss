@@ -4,28 +4,36 @@
 	padding: $p-16;
 
 	h2 {
-		margin-bottom: 8px;
-	}
-}
-
-.sales-top {
-	justify-content: space-between;
-	margin-bottom: 8px;
-	font-size: 16px;
-	font-weight: bold;
-}
-
-.sales {
-	.highlight {
-		font-weight: bold;
+		margin-bottom: 1px;
 	}
 }
 
 .sales-item {
 	align-items: center;
-	justify-content: space-between;
-	padding: 8px;
+	padding: 7px;
 	background: $c-green-1;
+	counter-increment: item-counter;
+
+	span {
+		display: inline-block;
+	}
+
+	.trophy {
+		padding-left: 8px;
+	}
+
+	.last-name {
+		overflow: hidden;
+		flex: 1 1;
+		padding: 0 8px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&::before {
+		content: counter(item-counter);
+		font-size: 16px;
+	}
 
 	&:first-child {
 		background: $c-green;
@@ -44,27 +52,21 @@
 	&:nth-last-child(2) {
 		border-radius: 0 0 $br-r-md $br-r-md;
 	}
-
-	span {
-		display: inline-block;
-	}
 }
 
-.sales-item-pos {
-	span {
-		&:first-child {
-			margin-right: 8px;
-		}
+.sales-top {
+	justify-content: space-between;
+	margin-bottom: 4px;
+	font-size: 16px;
+	font-weight: bold;
+}
 
-		&:last-child {
-			overflow: hidden;
-			max-width: calc(100vw - 144px);
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
-	}
+.sales {
+	padding: 0;
+	margin: 0;
+	counter-reset: item-counter;
 
-	.reward {
-		margin-right: 8px;
+	.highlight {
+		font-weight: bold;
 	}
 }

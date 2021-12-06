@@ -4,24 +4,32 @@
 	padding-top: $p-16;
 }
 
+.my-sales-sum {
+	display: flex;
+	justify-content: space-between;
+	padding: $p-16;
+	border-top: $br;
+	font-weight: bold;
+}
+
 .my-sales-table {
 	flex-direction: column;
 	padding-right: $p-16;
 	padding-left: $p-16;
 
 	h2 {
-		margin-bottom: 21px;
+		margin-bottom: 17px;
 	}
 
 	.location {
-		margin-bottom: 8px;
+		margin-bottom: 4px;
 		font-weight: bold;
 	}
 
 	.department {
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: 16px;
+		margin-bottom: 12px;
 
 		span {
 			display: inline-block;
@@ -31,12 +39,4 @@
 			}
 		}
 	}
-}
-
-.my-sales-sum {
-	display: flex;
-	justify-content: space-between;
-	padding: $p-16;
-	border-top: $br;
-	font-weight: bold;
 }
