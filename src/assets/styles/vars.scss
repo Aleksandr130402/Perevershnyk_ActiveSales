@@ -19,10 +19,15 @@ $c-gray-5: #f2f2f2;
 $c-red: #d32f2f;
 $c-blue: #2f80ed;
 
+$c-green: #d2ffce;
+$c-green-1: #d2ffce66;
+
 $br-r: 20px;
 $br-r-md: 10px;
 $br-r-md-2: 8px;
 $br-r-sm: 5px;
+
+$br: 1px solid #e7e7e7;
 
 $transition-normal: all 0.3s ease-in-out;
 $transition-fast: all 0.1s ease-in-out;
@@ -32,3 +37,5 @@ $shadow: 0 2px 2px rgb(0 0 0 / 25%);
 $w-xl: 896px;
 $w-lg: 688px;
 $w-md: 488px;
+
+$p-16: 16px;

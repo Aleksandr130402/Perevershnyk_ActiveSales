@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.18 (2021-12-08)
+
+
+### Features
+
+* add start template ([7281a17](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/7281a17b6fd9cd1e4d2b316806cab4755ce29056))
+* added layout and filter switches ([07eb7c9](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/07eb7c91ea9b00a70b83dad889ef1da4c529ed67))
+* added page layout ([2465de2](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/2465de2a9d58630041d064f6d721c700dbfa7f57))
+
+
+### Bug Fixes
+
+* filter switches, feat: added svg icon ([6293670](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/629367049a13c12c5cfe2614e07b01a3e7e5e6aa))
+
 ### [0.1.17](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_Boilerplate/compare/v0.1.16...v0.1.17) (2021-11-16)
 
 
