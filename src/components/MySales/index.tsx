@@ -1,29 +1,36 @@
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
+import { MySalesProps } from './MySales.d';
 import './MySales.scss';
 
-export const MySales: FC = () => {
+const titleTotal = 'Загальна сума виторгу:';
+const textMoney = ' грн';
+
+export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 	return (
 		<div className="box box-white my-sales">
 			<div className="my-sales-table line">
-				<h2>Грудень 2021</h2>
-				<span className="location">Оболонський пр. 21</span>
-				<div className="department line">
-					<span>Гастрономія + Лавка Традицій + Рибний відділ</span>
-					<span>1 113 грн</span>
-				</div>
-				<div className="department line">
-					<span>Пекарня</span>
-					<span>632 333 грн</span>
-				</div>
-				<span className="location">Перемоги пр. 10</span>
-				<div className="department line">
-					<span>Пекарня</span>
-					<span>2 333 грн</span>
-				</div>
+				<h2>{dataMySales.month}</h2>
+				{dataMySales.location.map((department, key) => (
+					<Fragment key={key}>
+						<span className="location">{department.name}</span>
+						{department.departments.map((item, key) => (
+							<div className="department line" key={key}>
+								<span>{item.name}</span>
+								<span>
+									{item.price}
+									{textMoney}
+								</span>
+							</div>
+						))}
+					</Fragment>
+				))}
 			</div>
 			<div className="my-sales-sum">
-				<span>Загальна сума виторгу:</span>
-				<span>358 566 грн</span>
+				<span>{titleTotal}</span>
+				<span>
+					{dataMySales.total}
+					{textMoney}
+				</span>
 			</div>
 		</div>
 	);
