@@ -8,7 +8,7 @@
 		"activeSales",
 		"sales"
 	],
-	"version": "0.1.17",
+	"version": "0.1.18",
 	"author": "o.tiapkin",
 	"license": "ISC",
 	"main": "index.js",
