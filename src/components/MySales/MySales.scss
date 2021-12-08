@@ -10,6 +10,14 @@
 	padding: $p-16;
 	border-top: $br;
 	font-weight: bold;
+
+	span {
+		&:first-child {
+			&::first-letter {
+				text-transform: capitalize;
+			}
+		}
+	}
 }
 
 .my-sales-table {

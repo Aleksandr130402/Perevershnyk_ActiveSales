@@ -2,7 +2,7 @@ import { FC, Fragment } from 'react';
 import { MySalesProps } from './MySales.d';
 import './MySales.scss';
 
-const titleTotal = 'Загальна сума виторгу:';
+const titleTotal = 'загальна сума виторгу:';
 const textMoney = ' грн';
 
 export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
