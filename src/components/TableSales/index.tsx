@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import classNames from 'classnames';
 
 import { TableSalesProps } from './TableSales.d';
@@ -12,6 +12,10 @@ const rightColumnName = 'грн/год';
 const surname = 'Ваше прізвище';
 
 export const TableSales: FC<TableSalesProps> = ({ dataRating }) => {
+	const itemSalesClass = useCallback((isHighlight: boolean) => {
+		return classNames('sales-item', 'line', { highlight: isHighlight });
+	}, []);
+
 	return (
 		<div className="box box-white table-sales">
 			<h2>{title}</h2>
@@ -22,7 +26,7 @@ export const TableSales: FC<TableSalesProps> = ({ dataRating }) => {
 			<ol className="sales">
 				{dataRating.map((item, id) => {
 					return (
-						<li className={classNames('sales-item', 'line', { highlight: surname === item.surname })} key={id}>
+						<li className={itemSalesClass(surname === item.surname)} key={id}>
 							{id === 0 && <img className="trophy" src={trophyIcon} alt="trophy" />}
 							<span className="last-name">{item.surname}</span>
 							<span>{item.money}</span>
