@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.19 (2021-12-14)
+
+
+### Features
+
+* add start template ([7281a17](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/7281a17b6fd9cd1e4d2b316806cab4755ce29056))
+* added FilterSwitches component ([e833f93](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/e833f9383813c0a5533185a381126a748f2b30e2))
+* added layout and filter switches ([07eb7c9](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/07eb7c91ea9b00a70b83dad889ef1da4c529ed67))
+* added page layout ([2465de2](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/2465de2a9d58630041d064f6d721c700dbfa7f57))
+* merged with feat/filter-switches ([dceb9a5](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/dceb9a5682edeaeac1cef7da2b00e9fafd6daf74))
+* merged with feat/html-layout-module ([30dbcf6](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/30dbcf68c7bfb7c71b4b5b7924c41284b9356d37))
+* throwprops through components ([31ecf65](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/31ecf65da6b806f1588c1d3b21ec4896d705f4e1))
+
+
+### Bug Fixes
+
+* filter switches, feat: added svg icon ([6293670](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/629367049a13c12c5cfe2614e07b01a3e7e5e6aa))
+
 ### 0.1.18 (2021-12-08)
 
 

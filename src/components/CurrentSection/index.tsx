@@ -1,12 +1,13 @@
 import { FC } from 'react';
+import { CurrentSectionProps } from './CurrentSection.d';
 
 import './CurrentSection.scss';
 
-export const CurrentSection: FC = () => {
+export const CurrentSection: FC<CurrentSectionProps> = ({ title, desc }) => {
 	return (
 		<div className="box box-white current-section">
-			<h2>Поточна секція</h2>
-			<p>Гастрономія + Лавка Традицій + Рибний відділ</p>
+			<h2>{title}</h2>
+			<p>{desc}</p>
 		</div>
 	);
 };
