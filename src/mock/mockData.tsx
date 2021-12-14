@@ -1,6 +1,19 @@
 import { ItemSales } from '../components/MySales/MySales.d';
 import { TableItemSales } from '../components/TableSales/TableSales.d';
 
+export const propForSwitcher = () => [
+	{
+		value: '1',
+		defaultChecked: true,
+		label: 'мої продажі'
+	},
+	{
+		value: '0',
+		defaultChecked: false,
+		label: 'рейтинг'
+	}
+];
+
 export const sectionData = {
 	title: 'Поточна секція',
 	desc: 'Гастрономія + Лавка Традицій + Рибний відділ'
