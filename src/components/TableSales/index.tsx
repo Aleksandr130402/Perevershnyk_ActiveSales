@@ -7,7 +7,7 @@ import trophyIcon from '../../assets/images/trophy.svg';
 import './TableSales.scss';
 
 const title = 'продажі';
-const leftColumnName = 'перевешники';
+const leftColumnName = 'перевершники';
 const rightColumnName = 'грн/год';
 const surname = 'Ваше прізвище';
 
