@@ -1,13 +1,11 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 
-import {
-	sectionData,
-	dataMySales1,
-	dataMySales2,
-	encourageMessage,
-	dataRating,
-	propForSwitcher
-} from '../../mock/mockData';
+import { ActiveSalesAPI, getApiData } from '../../utils/api';
+import { ActiveSalesDto } from './ActiveSales.dto';
+import { useAppDispatch } from '../../context/App.context';
+import { setAppStatus } from '../../actions/App.actions';
+
+import { dataRating, propForSwitcher, encourageMessage } from '../../mock/mockData';
 import { CurrentSection } from '../../components/CurrentSection';
 import { EncourageMessage } from '../../components/EncourageMessage';
 import { MySales } from '../../components/MySales';
@@ -16,22 +14,41 @@ import { FilterSwitches } from '../../components/FilterSwitches';
 
 import './ActiveSales.scss';
 
+const titleSection = 'Поточна секція';
+
 export const ActiveSales: FC = () => {
+	const appDispatch = useAppDispatch();
 	const [checked, setChecked] = useState(true);
+	const [activeSales, setActiveSales] = useState<ActiveSalesDto>({} as ActiveSalesDto);
+
+	const getActiveSales = useCallback(async () => {
+		await getApiData(ActiveSalesDto, () => new ActiveSalesAPI().getSales(1), {} as ActiveSalesDto, appDispatch, {
+			onSuccess: (res) => {
+				const response = res as ActiveSalesDto;
+				setActiveSales(response);
+				appDispatch(setAppStatus('ok'));
+			}
+		});
+	}, [appDispatch]);
+
+	useEffect(() => {
+		!Object.keys(activeSales).length && getActiveSales();
+	}, [getActiveSales, activeSales]);
 
 	return (
 		<div className="box-active-sales">
-			<CurrentSection title={sectionData.title} desc={sectionData.desc} />
-			<FilterSwitches changeStatus={() => setChecked(!checked)} propSwitches={propForSwitcher()} />
-			{checked ? (
+			{!!Object.keys(activeSales).length && (
 				<>
-					<MySales dataMySales={dataMySales1} />
-					<MySales dataMySales={dataMySales2} />
-				</>
-			) : (
-				<>
-					<EncourageMessage message={encourageMessage} />
-					<TableSales dataRating={dataRating} />
+					<CurrentSection title={titleSection} desc={activeSales.mySales.curSection} />
+					<FilterSwitches changeStatus={() => setChecked(!checked)} propSwitches={propForSwitcher()} />
+					{checked ? (
+						<MySales dataMySales={activeSales.mySales.salesByMonths} />
+					) : (
+						<>
+							<EncourageMessage message={encourageMessage} />
+							<TableSales dataRating={dataRating} />
+						</>
+					)}
 				</>
 			)}
 		</div>

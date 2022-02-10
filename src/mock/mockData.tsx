@@ -1,4 +1,3 @@
-import { ItemSales } from '../components/MySales/MySales.d';
 import { TableItemSales } from '../components/TableSales/TableSales.d';
 
 export const propForSwitcher = () => [
@@ -13,56 +12,6 @@ export const propForSwitcher = () => [
 		label: 'рейтинг'
 	}
 ];
-
-export const sectionData = {
-	title: 'Поточна секція',
-	desc: 'Гастрономія + Лавка Традицій + Рибний відділ'
-};
-
-export const dataMySales1: ItemSales = {
-	month: 'Грудень 2021',
-	location: [
-		{
-			name: 'Оболонський пр. 21',
-			departments: [
-				{
-					name: 'Гастрономія + Лавка Традицій + Рибний відділ',
-					price: 1113
-				},
-				{
-					name: 'Пекарня',
-					price: 632333
-				}
-			]
-		},
-		{
-			name: 'Перемоги пр. 10',
-			departments: [
-				{
-					name: 'Пекарня',
-					price: 2333
-				}
-			]
-		}
-	],
-	total: 358566
-};
-
-export const dataMySales2: ItemSales = {
-	month: 'Листопад 2021',
-	location: [
-		{
-			name: 'Оболонський пр. 21',
-			departments: [
-				{
-					name: 'Пекарня',
-					price: 2333
-				}
-			]
-		}
-	],
-	total: 2333
-};
 
 export const dataRating: TableItemSales[] = [
 	{
