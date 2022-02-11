@@ -11,25 +11,21 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 	return (
 		<div className="box box-white my-sales">
 			<div className="my-sales-table line">
-				{dataMySales.map((month, key) => (
+				<h2>{dataMySales.name}</h2>
+				{dataMySales.salesByAddress.map((saleByAddress, key) => (
 					<Fragment key={key}>
-						<h2>{month.name}</h2>
-						{month.salesByAddress.map((saleByAddress, key) => (
-							<Fragment key={key}>
-								<span className="location">{saleByAddress.address}</span>
-								{saleByAddress.salesBySections.map((saleBySections, key) => {
-									total += saleBySections.amount;
-									return (
-										<div className="department line" key={key}>
-											<span>{saleBySections.section}</span>
-											<span>
-												{saleBySections.amount} {saleBySections.currency}
-											</span>
-										</div>
-									);
-								})}
-							</Fragment>
-						))}
+						<span className="address">{saleByAddress.address}</span>
+						{saleByAddress.salesBySections.map((saleBySections, key) => {
+							total += saleBySections.amount;
+							return (
+								<div className="section line" key={key}>
+									<span>{saleBySections.section}</span>
+									<span>
+										{saleBySections.amount} {saleBySections.currency}
+									</span>
+								</div>
+							);
+						})}
 					</Fragment>
 				))}
 			</div>

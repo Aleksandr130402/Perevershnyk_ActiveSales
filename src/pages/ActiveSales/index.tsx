@@ -42,7 +42,7 @@ export const ActiveSales: FC = () => {
 					<CurrentSection title={titleSection} desc={activeSales.mySales.curSection} />
 					<FilterSwitches changeStatus={() => setChecked(!checked)} propSwitches={propForSwitcher()} />
 					{checked ? (
-						<MySales dataMySales={activeSales.mySales.salesByMonths} />
+						activeSales.mySales.salesByMonths.map((item, key) => <MySales key={key} dataMySales={item} />)
 					) : (
 						<>
 							<EncourageMessage message={encourageMessage} />
