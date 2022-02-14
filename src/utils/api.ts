@@ -29,6 +29,12 @@ abstract class HttpClient {
 		this.instance.defaults.headers.common = {
 			Accept: 'application/json;odata=verbose'
 		};
+
+		if (process.env.NODE_ENV === 'development' && process.env.HEADER_SID) {
+			this.instance.defaults.headers.common = {
+				_globaluserid: process.env.HEADER_SID
+			};
+		}
 	}
 }
 
@@ -36,8 +42,8 @@ export class ActiveSalesAPI extends HttpClient {
 	public constructor() {
 		super('CrossfitActiveSales');
 	}
-	public async getSales<T>(salesId: number): Promise<T> {
-		const response = await this.instance.get<T>(`${salesId}`);
+	public async getSales<T>(): Promise<T> {
+		const response = await this.instance.get<T>('');
 		return response.data;
 	}
 }

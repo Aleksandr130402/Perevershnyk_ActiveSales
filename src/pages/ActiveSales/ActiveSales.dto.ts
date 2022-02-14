@@ -1,37 +1,5 @@
 import { Exclude, Expose, Type } from 'class-transformer';
-import { IsArray, IsInt, IsString, MaxLength, ValidateNested } from 'class-validator';
-
-// @Exclude()
-// export class MyRatingDto {
-// 	@Expose()
-// 	@IsString()
-// 	public curSection: string;
-
-// 	@Expose()
-// 	@IsString()
-// 	public phrase: string;
-
-// 	@Expose()
-// 	@Type(() => RatingsDto)
-// 	@IsArray()
-// 	@ValidateNested({ each: true })
-// 	public ratings: RatingsDto[];
-// }
-
-// @Exclude()
-// export class RatingsDto {
-// 	@Expose()
-// 	@IsString()
-// 	public color: string;
-
-// 	@Expose()
-// 	@IsBoolean()
-// 	public isCurrent: boolean;
-
-// 	@Expose()
-// 	@IsInt()
-// 	public result: number;
-// }
+import { IsArray, IsBoolean, IsInt, IsOptional, IsString, MaxLength, ValidateNested } from 'class-validator';
 
 @Exclude()
 export class SalesBySectionsDto {
@@ -45,7 +13,8 @@ export class SalesBySectionsDto {
 	public currency: string;
 
 	@Expose()
-	// @IsBoolean()
+	@IsBoolean()
+	@IsOptional()
 	public isCurrent: boolean;
 
 	@Expose()
@@ -98,9 +67,4 @@ export class ActiveSalesDto {
 	@Type(() => MySalesDto)
 	@ValidateNested({ each: true })
 	public mySales: MySalesDto;
-
-	// @Expose()
-	// @Type(() => MyRatingDto)
-	// @ValidateNested({ each: true })
-	// public myRating: MyRatingDto;
 }

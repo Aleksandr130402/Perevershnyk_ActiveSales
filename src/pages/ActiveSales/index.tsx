@@ -5,16 +5,26 @@ import { ActiveSalesDto } from './ActiveSales.dto';
 import { useAppDispatch } from '../../context/App.context';
 import { setAppStatus } from '../../actions/App.actions';
 
-import { dataRating, propForSwitcher, encourageMessage } from '../../mock/mockData';
 import { CurrentSection } from '../../components/CurrentSection';
-import { EncourageMessage } from '../../components/EncourageMessage';
 import { MySales } from '../../components/MySales';
-import { TableSales } from '../../components/TableSales';
 import { FilterSwitches } from '../../components/FilterSwitches';
 
 import './ActiveSales.scss';
 
-const titleSection = 'Поточна секція';
+const titleSection = 'поточна секція';
+
+const propForSwitcher = () => [
+	{
+		value: '1',
+		defaultChecked: true,
+		label: 'мої продажі'
+	},
+	{
+		value: '0',
+		defaultChecked: false,
+		label: 'рейтинг'
+	}
+];
 
 export const ActiveSales: FC = () => {
 	const appDispatch = useAppDispatch();
@@ -22,7 +32,7 @@ export const ActiveSales: FC = () => {
 	const [activeSales, setActiveSales] = useState<ActiveSalesDto>({} as ActiveSalesDto);
 
 	const getActiveSales = useCallback(async () => {
-		await getApiData(ActiveSalesDto, () => new ActiveSalesAPI().getSales(1), {} as ActiveSalesDto, appDispatch, {
+		await getApiData(ActiveSalesDto, () => new ActiveSalesAPI().getSales(), {} as ActiveSalesDto, appDispatch, {
 			onSuccess: (res) => {
 				const response = res as ActiveSalesDto;
 				setActiveSales(response);
@@ -41,14 +51,9 @@ export const ActiveSales: FC = () => {
 				<>
 					<CurrentSection title={titleSection} desc={activeSales.mySales.curSection} />
 					<FilterSwitches changeStatus={() => setChecked(!checked)} propSwitches={propForSwitcher()} />
-					{checked ? (
-						activeSales.mySales.salesByMonths.map((item, key) => <MySales key={key} dataMySales={item} />)
-					) : (
-						<>
-							<EncourageMessage message={encourageMessage} />
-							<TableSales dataRating={dataRating} />
-						</>
-					)}
+					{activeSales.mySales.salesByMonths.map((item, key) => (
+						<MySales key={key} dataMySales={item} />
+					))}
 				</>
 			)}
 		</div>
