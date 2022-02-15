@@ -8,11 +8,12 @@ import { setAppStatus } from '../../actions/App.actions';
 import { CurrentSection } from '../../components/CurrentSection';
 import { MySales } from '../../components/MySales';
 import { FilterSwitches } from '../../components/FilterSwitches';
-import { DICTIONARY } from '../../dictionary/dictionary';
+import { DICTIONARY_MY_SALES, FILTER_LABELS } from '../../dictionary/dictionaries';
 
 import './ActiveSales.scss';
 
-const { TITLE_SECTION, LABEL_MY_SALES, LABEL_RATINGS } = DICTIONARY;
+const { TITLE_SECTION } = DICTIONARY_MY_SALES;
+const { LABEL_MY_SALES, LABEL_RATINGS } = FILTER_LABELS;
 
 const propForSwitcher = () => [
 	{

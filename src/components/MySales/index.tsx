@@ -1,16 +1,21 @@
-import { FC, Fragment } from 'react';
-import { DICTIONARY } from '../../dictionary/dictionary';
+import { FC, Fragment, useCallback } from 'react';
+import { DICTIONARY_MY_SALES } from '../../dictionary/dictionaries';
 import { MySalesProps } from './MySales.d';
 import './MySales.scss';
 
-const { TITLE_TOTAL, TEXT_MONEY } = DICTIONARY;
+const { TITLE_TOTAL, TEXT_MONEY } = DICTIONARY_MY_SALES;
 
 export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
-	let total = 0;
-	const countTotal = (amount: number) => {
-		total += amount;
+	const countTotal = useCallback(() => {
+		let total = 0;
+		dataMySales.salesByAddress.forEach((saleByAddress) => {
+			saleByAddress.salesBySections.forEach((saleBySections) => {
+				total += saleBySections.amount;
+			});
+		});
 		return total;
-	};
+	}, [dataMySales]);
+
 	return (
 		<div className="box box-white my-sales">
 			<div className="my-sales-table line">
@@ -19,7 +24,6 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 					<Fragment key={key}>
 						<span className="address">{saleByAddress.address}</span>
 						{saleByAddress.salesBySections.map((saleBySections, key) => {
-							countTotal(saleBySections.amount);
 							return (
 								<div className="section line" key={key}>
 									<span>{saleBySections.section}</span>
@@ -35,7 +39,7 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 			<div className="my-sales-sum">
 				<span>{TITLE_TOTAL}</span>
 				<span>
-					{total} {TEXT_MONEY}
+					{countTotal()} {TEXT_MONEY}
 				</span>
 			</div>
 		</div>

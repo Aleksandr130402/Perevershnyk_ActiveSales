@@ -32,7 +32,7 @@ abstract class HttpClient {
 
 		if (process.env.NODE_ENV === 'development') {
 			this.instance.defaults.headers.common = {
-				_globaluserid: process.env.HEADER_SID || ''
+				_globaluserid: process.env.HEADER_GLOBAL_USER_ID || ''
 			};
 		}
 	}
