@@ -1,5 +1,5 @@
 import { Exclude, Expose, Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsInt, IsOptional, IsString, MaxLength, ValidateNested } from 'class-validator';
+import { IsArray, IsBoolean, IsInt, IsObject, IsOptional, IsString, MaxLength, ValidateNested } from 'class-validator';
 
 @Exclude()
 export class SalesBySectionsDto {
@@ -15,7 +15,7 @@ export class SalesBySectionsDto {
 	@Expose()
 	@IsBoolean()
 	@IsOptional()
-	public isCurrent: boolean;
+	public isCurrent?: boolean;
 
 	@Expose()
 	@IsString()
@@ -65,6 +65,7 @@ export class MySalesDto {
 export class ActiveSalesDto {
 	@Expose()
 	@Type(() => MySalesDto)
+	@IsObject()
 	@ValidateNested({ each: true })
 	public mySales: MySalesDto;
 }

@@ -10,7 +10,7 @@ import { setAppStatus } from '../actions/App.actions';
 
 import { Action } from '../types/App.context.types';
 
-type apiSection = 'CrossfitActiveSales';
+type apiSection = 'CrossfitActiveSales' | '';
 
 const baseUrl = (endpoint?: string) => {
 	const protocolPart = `https://`;
@@ -30,9 +30,9 @@ abstract class HttpClient {
 			Accept: 'application/json;odata=verbose'
 		};
 
-		if (process.env.NODE_ENV === 'development' && process.env.HEADER_SID) {
+		if (process.env.NODE_ENV === 'development') {
 			this.instance.defaults.headers.common = {
-				_globaluserid: process.env.HEADER_SID
+				_globaluserid: process.env.HEADER_SID || ''
 			};
 		}
 	}
@@ -40,10 +40,10 @@ abstract class HttpClient {
 
 export class ActiveSalesAPI extends HttpClient {
 	public constructor() {
-		super('CrossfitActiveSales');
+		super('');
 	}
 	public async getSales<T>(): Promise<T> {
-		const response = await this.instance.get<T>('');
+		const response = await this.instance.get<T>('CrossfitActiveSales');
 		return response.data;
 	}
 }

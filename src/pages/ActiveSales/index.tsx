@@ -8,21 +8,22 @@ import { setAppStatus } from '../../actions/App.actions';
 import { CurrentSection } from '../../components/CurrentSection';
 import { MySales } from '../../components/MySales';
 import { FilterSwitches } from '../../components/FilterSwitches';
+import { DICTIONARY } from '../../dictionary/dictionary';
 
 import './ActiveSales.scss';
 
-const titleSection = 'поточна секція';
+const { TITLE_SECTION, LABEL_MY_SALES, LABEL_RATINGS } = DICTIONARY;
 
 const propForSwitcher = () => [
 	{
 		value: '1',
 		defaultChecked: true,
-		label: 'мої продажі'
+		label: LABEL_MY_SALES
 	},
 	{
 		value: '0',
 		defaultChecked: false,
-		label: 'рейтинг'
+		label: LABEL_RATINGS
 	}
 ];
 
@@ -49,7 +50,7 @@ export const ActiveSales: FC = () => {
 		<div className="box-active-sales">
 			{!!Object.keys(activeSales).length && (
 				<>
-					<CurrentSection title={titleSection} desc={activeSales.mySales.curSection} />
+					<CurrentSection title={TITLE_SECTION} desc={activeSales.mySales.curSection} />
 					<FilterSwitches changeStatus={() => setChecked(!checked)} propSwitches={propForSwitcher()} />
 					{activeSales.mySales.salesByMonths.map((item, key) => (
 						<MySales key={key} dataMySales={item} />
