@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.1.20 (2022-02-16)
+
+
+### Features
+
+* add start template ([7281a17](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/7281a17b6fd9cd1e4d2b316806cab4755ce29056))
+* added dictionary; changed ActiveSales.dto, api.ts ([a539a18](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/a539a18151165ee0d6f5013c58426cbc5dc71795))
+* added FilterSwitches component ([e833f93](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/e833f9383813c0a5533185a381126a748f2b30e2))
+* added HEADER_SID, deleted mock folder, changed ActiveSales.dto ([cb25c2a](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/cb25c2a32d549b76770825530522dfeda5d75a61))
+* added layout and filter switches ([07eb7c9](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/07eb7c91ea9b00a70b83dad889ef1da4c529ed67))
+* added page layout ([2465de2](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/2465de2a9d58630041d064f6d721c700dbfa7f57))
+* api refactoring my sales ([3db8765](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/3db876536f92e54450f35c90059a008bbeeebef9))
+* count total for each month separately ([0b98b7e](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/0b98b7e76a033e9e062fcadfa5a8bbcb5c95a6c4))
+* env HEADER_SID renamed, deleted unusing files, changed dictionary ([ac49442](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/ac49442e2c236a0b0dcd0722391b06284578f002))
+* merged with feat/filter-switches ([dceb9a5](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/dceb9a5682edeaeac1cef7da2b00e9fafd6daf74))
+* merged with feat/html-layout-module ([30dbcf6](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/30dbcf68c7bfb7c71b4b5b7924c41284b9356d37))
+* reinstalled @temabit/perevershnyk-rpc-iframe and MySales component refactoring ([db200e3](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/db200e3a362b1a652a424745e6c71512a72f1d0b))
+* throwprops through components ([31ecf65](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/31ecf65da6b806f1588c1d3b21ec4896d705f4e1))
+* uikit up version to 0.0.107 ([33c2ae4](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/33c2ae493d0e4fd78005730cf575dd7c2565b115))
+* uikit version raised to 0.0.106 ([25e0221](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/25e02211f512cf8e3371aa06e4bec639de016b5a))
+
+
+### Bug Fixes
+
+* filter switches, feat: added svg icon ([6293670](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/629367049a13c12c5cfe2614e07b01a3e7e5e6aa))
+
 ### 0.1.19 (2021-12-14)
 
 
