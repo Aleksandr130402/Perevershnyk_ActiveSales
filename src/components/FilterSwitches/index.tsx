@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { FILTER_LABELS } from '../../dictionary/dictionaries';
 
 import { FilterSwitchesProps } from './FilterSwitches.d';
 
@@ -18,6 +19,7 @@ export const FilterSwitches: FC<FilterSwitchesProps> = ({ changeStatus, propSwit
 							defaultChecked={item.defaultChecked}
 							value={item.value.toString()}
 							onChange={changeStatus}
+							disabled={item.label === FILTER_LABELS.LABEL_RATINGS}
 						/>
 						<label htmlFor={`switches-${item.value}`}>{item.label}</label>
 					</div>

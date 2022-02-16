@@ -1,37 +1,61 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 
-import {
-	sectionData,
-	dataMySales1,
-	dataMySales2,
-	encourageMessage,
-	dataRating,
-	propForSwitcher
-} from '../../mock/mockData';
+import { ActiveSalesAPI, getApiData } from '../../utils/api';
+import { ActiveSalesDto } from './ActiveSales.dto';
+import { useAppDispatch } from '../../context/App.context';
+import { setAppStatus } from '../../actions/App.actions';
+
 import { CurrentSection } from '../../components/CurrentSection';
-import { EncourageMessage } from '../../components/EncourageMessage';
 import { MySales } from '../../components/MySales';
-import { TableSales } from '../../components/TableSales';
 import { FilterSwitches } from '../../components/FilterSwitches';
+import { DICTIONARY_MY_SALES, FILTER_LABELS } from '../../dictionary/dictionaries';
 
 import './ActiveSales.scss';
 
+const { TITLE_SECTION } = DICTIONARY_MY_SALES;
+const { LABEL_MY_SALES, LABEL_RATINGS } = FILTER_LABELS;
+
+const propForSwitcher = () => [
+	{
+		value: '1',
+		defaultChecked: true,
+		label: LABEL_MY_SALES
+	},
+	{
+		value: '0',
+		defaultChecked: false,
+		label: LABEL_RATINGS
+	}
+];
+
 export const ActiveSales: FC = () => {
+	const appDispatch = useAppDispatch();
 	const [checked, setChecked] = useState(true);
+	const [activeSales, setActiveSales] = useState<ActiveSalesDto>({} as ActiveSalesDto);
+
+	const getActiveSales = useCallback(async () => {
+		await getApiData(ActiveSalesDto, () => new ActiveSalesAPI().getSales(), {} as ActiveSalesDto, appDispatch, {
+			onSuccess: (res) => {
+				const response = res as ActiveSalesDto;
+				setActiveSales(response);
+				appDispatch(setAppStatus('ok'));
+			}
+		});
+	}, [appDispatch]);
+
+	useEffect(() => {
+		!Object.keys(activeSales).length && getActiveSales();
+	}, [getActiveSales, activeSales]);
 
 	return (
 		<div className="box-active-sales">
-			<CurrentSection title={sectionData.title} desc={sectionData.desc} />
-			<FilterSwitches changeStatus={() => setChecked(!checked)} propSwitches={propForSwitcher()} />
-			{checked ? (
+			{!!Object.keys(activeSales).length && (
 				<>
-					<MySales dataMySales={dataMySales1} />
-					<MySales dataMySales={dataMySales2} />
-				</>
-			) : (
-				<>
-					<EncourageMessage message={encourageMessage} />
-					<TableSales dataRating={dataRating} />
+					<CurrentSection title={TITLE_SECTION} desc={activeSales.mySales.curSection} />
+					<FilterSwitches changeStatus={() => setChecked(!checked)} propSwitches={propForSwitcher()} />
+					{activeSales.mySales.salesByMonths.map((item, key) => (
+						<MySales key={key} dataMySales={item} />
+					))}
 				</>
 			)}
 		</div>

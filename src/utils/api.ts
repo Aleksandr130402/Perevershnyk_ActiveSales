@@ -1,18 +1,16 @@
-import { plainToClass } from 'class-transformer';
-import { validateSync } from 'class-validator';
+import { Dispatch } from 'react';
+import { AxiosError } from 'axios';
+import { plainToClass, ClassConstructor } from 'class-transformer';
+import { validateSync, ValidationError } from 'class-validator';
 import { client } from '@temabit/perevershnyk-rpc-iframe';
 
 import { mappedResponse } from './error.handling';
 
 import { setAppStatus } from '../actions/App.actions';
 
-import type { Dispatch } from 'react';
-import type { AxiosError } from 'axios';
-import type { ClassConstructor } from 'class-transformer';
-import type { ValidationError } from 'class-validator';
-import type { Action } from '../types/App.context.types';
+import { Action } from '../types/App.context.types';
 
-type apiSection = '';
+type apiSection = 'CrossfitActiveSales' | '';
 
 const baseUrl = (endpoint?: string) => {
 	const protocolPart = `https://`;
@@ -31,12 +29,22 @@ abstract class HttpClient {
 		this.instance.defaults.headers.common = {
 			Accept: 'application/json;odata=verbose'
 		};
+
+		if (process.env.NODE_ENV === 'development') {
+			this.instance.defaults.headers.common = {
+				_globaluserid: process.env.HEADER_GLOBAL_USER_ID || ''
+			};
+		}
 	}
 }
 
-export class EntertainmentsAPI extends HttpClient {
+export class ActiveSalesAPI extends HttpClient {
 	public constructor() {
 		super('');
+	}
+	public async getSales<T>(): Promise<T> {
+		const response = await this.instance.get<T>('CrossfitActiveSales');
+		return response.data;
 	}
 }
 

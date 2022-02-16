@@ -1,24 +1,33 @@
-import { FC, Fragment } from 'react';
+import { FC, Fragment, useCallback } from 'react';
+import { DICTIONARY_MY_SALES } from '../../dictionary/dictionaries';
 import { MySalesProps } from './MySales.d';
 import './MySales.scss';
 
-const titleTotal = 'загальна сума виторгу:';
-const textMoney = ' грн';
+const { TITLE_TOTAL, TEXT_MONEY } = DICTIONARY_MY_SALES;
 
 export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
+	const countTotal = useCallback(() => {
+		let total = 0;
+		dataMySales.salesByAddress.forEach((saleByAddress) => {
+			saleByAddress.salesBySections.forEach((saleBySections) => {
+				total += saleBySections.amount;
+			});
+		});
+		return total;
+	}, [dataMySales]);
+
 	return (
 		<div className="box box-white my-sales">
 			<div className="my-sales-table line">
-				<h2>{dataMySales.month}</h2>
-				{dataMySales.location.map((department, key) => (
+				<h2>{dataMySales.name}</h2>
+				{dataMySales.salesByAddress.map((saleByAddress, key) => (
 					<Fragment key={key}>
-						<span className="location">{department.name}</span>
-						{department.departments.map((item, key) => (
-							<div className="department line" key={key}>
-								<span>{item.name}</span>
+						<span className="address">{saleByAddress.address}</span>
+						{saleByAddress.salesBySections.map((saleBySections, key) => (
+							<div className="section line" key={key}>
+								<span>{saleBySections.section}</span>
 								<span>
-									{item.price}
-									{textMoney}
+									{saleBySections.amount} {saleBySections.currency}
 								</span>
 							</div>
 						))}
@@ -26,10 +35,9 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 				))}
 			</div>
 			<div className="my-sales-sum">
-				<span>{titleTotal}</span>
+				<span>{TITLE_TOTAL}</span>
 				<span>
-					{dataMySales.total}
-					{textMoney}
+					{countTotal()} {TEXT_MONEY}
 				</span>
 			</div>
 		</div>
