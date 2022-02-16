@@ -23,16 +23,14 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 				{dataMySales.salesByAddress.map((saleByAddress, key) => (
 					<Fragment key={key}>
 						<span className="address">{saleByAddress.address}</span>
-						{saleByAddress.salesBySections.map((saleBySections, key) => {
-							return (
-								<div className="section line" key={key}>
-									<span>{saleBySections.section}</span>
-									<span>
-										{saleBySections.amount} {saleBySections.currency}
-									</span>
-								</div>
-							);
-						})}
+						{saleByAddress.salesBySections.map((saleBySections, key) => (
+							<div className="section line" key={key}>
+								<span>{saleBySections.section}</span>
+								<span>
+									{saleBySections.amount} {saleBySections.currency}
+								</span>
+							</div>
+						))}
 					</Fragment>
 				))}
 			</div>
