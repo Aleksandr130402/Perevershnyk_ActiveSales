@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.21](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/compare/v0.1.20...v0.1.21) (2022-02-18)
+
+
+### Bug Fixes
+
+* re-generated package-lock & updated postcss package versions ([670c03c](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/670c03c390c216829418423e3e4699efc6b50ccc))
+
 ### 0.1.20 (2022-02-16)
 
 
