@@ -1,8 +1,12 @@
 import { Exclude, Expose, Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsInt, IsObject, IsOptional, IsString, MaxLength, ValidateNested } from 'class-validator';
+import { IsArray, IsInt, IsObject, IsString, MaxLength, ValidateNested } from 'class-validator';
 
 @Exclude()
 export class SalesBySectionsDto {
+	@Expose()
+	@IsString()
+	public section: string;
+
 	@Expose()
 	@IsInt()
 	public amount: number;
@@ -11,15 +15,6 @@ export class SalesBySectionsDto {
 	@IsString()
 	@MaxLength(3)
 	public currency: string;
-
-	@Expose()
-	@IsBoolean()
-	@IsOptional()
-	public isCurrent?: boolean;
-
-	@Expose()
-	@IsString()
-	public section: string;
 }
 
 @Exclude()
