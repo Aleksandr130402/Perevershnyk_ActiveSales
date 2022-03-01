@@ -1,13 +1,17 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 
-import { ActiveSalesAPI, getApiData } from '../../utils/api';
-import { ActiveSalesDto } from './ActiveSales.dto';
-import { useAppDispatch } from '../../context/App.context';
-import { setAppStatus } from '../../actions/App.actions';
-
 import { CurrentSection } from '../../components/CurrentSection';
 import { MySales } from '../../components/MySales';
 import { FilterSwitches } from '../../components/FilterSwitches';
+
+import { setAppStatus } from '../../actions/App.actions';
+
+import { useAppDispatch } from '../../context/App.context';
+
+import { ActiveSalesAPI, getApiData } from '../../utils/api';
+
+import { ActiveSalesDto } from './ActiveSales.dto';
+
 import { DICTIONARY_MY_SALES, FILTER_LABELS } from '../../dictionary/dictionaries';
 
 import './ActiveSales.scss';

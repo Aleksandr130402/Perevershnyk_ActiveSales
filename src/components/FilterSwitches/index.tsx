@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { FILTER_LABELS } from '../../dictionary/dictionaries';
 
 import { FilterSwitchesProps } from './FilterSwitches.d';
+import { FILTER_LABELS } from '../../dictionary/dictionaries';
 
 import './FilterSwitches.scss';
 

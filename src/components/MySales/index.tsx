@@ -1,6 +1,8 @@
 import { FC, Fragment, useCallback } from 'react';
-import { DICTIONARY_MY_SALES } from '../../dictionary/dictionaries';
+
 import { MySalesProps } from './MySales.d';
+import { DICTIONARY_MY_SALES } from '../../dictionary/dictionaries';
+
 import './MySales.scss';
 
 const { TITLE_TOTAL, TEXT_MONEY } = DICTIONARY_MY_SALES;
@@ -27,7 +29,7 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 							<div className="section line" key={key}>
 								<span>{saleBySections.section}</span>
 								<span>
-									{saleBySections.amount} {saleBySections.currency}
+									{saleBySections.amount.toLocaleString()} {saleBySections.currency}
 								</span>
 							</div>
 						))}
@@ -37,7 +39,7 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 			<div className="my-sales-sum">
 				<span>{TITLE_TOTAL}</span>
 				<span>
-					{countTotal()} {TEXT_MONEY}
+					{countTotal().toLocaleString()} {TEXT_MONEY}
 				</span>
 			</div>
 		</div>
