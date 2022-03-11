@@ -12,11 +12,11 @@ import { ActiveSalesAPI, getApiData } from '../../utils/api';
 
 import { ActiveSalesDto } from './ActiveSales.dto';
 
-import { DICTIONARY_MY_SALES, FILTER_LABELS } from '../../dictionary/dictionaries';
+import { MY_SALES, FILTER_LABELS } from '../../dictionaries';
 
 import './ActiveSales.scss';
 
-const { TITLE_SECTION } = DICTIONARY_MY_SALES;
+const { TITLE_SECTION } = MY_SALES;
 const { LABEL_MY_SALES, LABEL_RATINGS } = FILTER_LABELS;
 
 const propForSwitcher = () => [

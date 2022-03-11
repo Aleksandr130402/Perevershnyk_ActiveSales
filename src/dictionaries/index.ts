@@ -1,4 +1,4 @@
-export enum DICTIONARY_MY_SALES {
+export enum MY_SALES {
 	TITLE_SECTION = 'поточна секція',
 	TITLE_TOTAL = 'загальна сума виторгу:',
 	TEXT_MONEY = 'грн'

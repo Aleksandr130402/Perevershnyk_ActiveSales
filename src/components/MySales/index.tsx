@@ -1,11 +1,11 @@
 import { FC, Fragment, useCallback } from 'react';
 
 import { MySalesProps } from './MySales.d';
-import { DICTIONARY_MY_SALES } from '../../dictionary/dictionaries';
+import { MY_SALES } from '../../dictionaries';
 
 import './MySales.scss';
 
-const { TITLE_TOTAL, TEXT_MONEY } = DICTIONARY_MY_SALES;
+const { TITLE_TOTAL, TEXT_MONEY } = MY_SALES;
 
 export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 	const countTotal = useCallback(() => {
@@ -15,7 +15,7 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 				total += saleBySections.amount;
 			});
 		});
-		return total;
+		return total.toLocaleString();
 	}, [dataMySales]);
 
 	return (
@@ -39,7 +39,7 @@ export const MySales: FC<MySalesProps> = ({ dataMySales }) => {
 			<div className="my-sales-sum">
 				<span>{TITLE_TOTAL}</span>
 				<span>
-					{countTotal().toLocaleString()} {TEXT_MONEY}
+					{countTotal()} {TEXT_MONEY}
 				</span>
 			</div>
 		</div>
