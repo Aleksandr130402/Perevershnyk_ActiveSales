@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/compare/v0.1.20...v0.1.22) (2022-03-14)
+
+
+### Features
+
+* added toLocaleString() to amount for divide it ([be2ceac](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/be2ceacb458859bde2527265e0993b4a373c6eeb))
+* deleted isCurrent from ActiveSales.dto ([b598216](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/b598216034e0069f68020f060ce17b56d9004409))
+* renamed dictionary, replaced toLocaleString inside countTotal ([91d4539](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/91d453944b1911e5e06e6b9f3e1fa2cacfc44ee0))
+
+
+### Bug Fixes
+
+* re-generated package-lock & updated postcss package versions ([5d78765](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/commit/5d787654783e5d6e22a7257ac3ed4af5eb1e6846))
+
 ### [0.1.21](http://tfs2013.fozzy.lan:8080/tfs/DefaultCollection/Perevershnyk_App/_git/PerevershnykApp_Module_ActiveSales/compare/v0.1.20...v0.1.21) (2022-02-18)
 
 
